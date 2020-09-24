@@ -22,16 +22,25 @@ describe('ImageService', () => {
   });
 
   describe('getImage' , () =>{
-    it('cuando se envia 3(que esta en la lista) entonces debe retornar este elemento' , () => {
+    it('cuando se envia 3(que esta en la lista) entonces debe retornar este elemento (Gato)' , () => {
       const id = 3;
       let resp = service.getImage(id);
       expect(resp.brand).toBe('gato');
       expect(resp.url).toBe('assets/images/gato1.jpg')
     });
-      it('cuando envie 7 debe retornar indefinido',() => {
-        const id = 7;
-        let resp = service.getImage(id);
-      expect(resp).toBeUndefined;
+
+    it('cuando se envia 1(que esta en la lista) entonces debe retornar este elemento (Perro)' , () => {
+      const id = 1;
+      let resp = service.getImage(id);
+      expect(resp.brand).toBe('perro');
+      expect(resp.url).toBe('assets/images/perro1.jpg')
     });
+
+    it('cuando envie 7 debe retornar indefinido',() => {
+      const id = 7;
+      let resp = service.getImage(id);
+    expect(resp).toBeUndefined();
+    });
+
   })
 });
